@@ -60,5 +60,20 @@ function whoIsWinnerCheck() {
         }
     }
 
+    for (let c = 0; c < nCol; c++) {
+        for (let r = 0; r < nRow - 3; r++) {  // Kollar inte de tre sista kolumnerna eftersom vi söker efter fyra i rad
+            let currentCoin = document.getElementById(`${r}${c}`).style.backgroundColor;
+
+            if (currentCoin !== "" &&  // Kollar om det finns en färg
+                currentCoin === document.getElementById(`${r + 1}${c}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${r + 2}${c}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${r + 3}${c}`).style.backgroundColor) {
+                // Om alla fyra har samma färg, så är det en vinnare
+
+
+                return currentCoin;  // Retur för att indikera vinnaren
+            }
+        }
+    }
 
 }
