@@ -69,7 +69,19 @@ function whoIsWinnerCheck() {
                 currentCoin === document.getElementById(`${r + 2}${c}`).style.backgroundColor &&
                 currentCoin === document.getElementById(`${r + 3}${c}`).style.backgroundColor) {
 
+                return currentCoin;
+            }
+        }
+    }
 
+    for (let r = 0; r < nRow - 3; r++) {
+        for (let c = 0; c < nCol - 3; c++) {
+            let currentCoin = document.getElementById(`${r}${c}`).style.backgroundColor;
+
+            if (currentCoin !== "" &&
+                currentCoin === document.getElementById(`${r - 1}${c + 1}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${r - 2}${c + 2}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${r - 3}${c + 3}`).style.backgroundColor) {
 
                 return currentCoin;
             }
