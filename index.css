@@ -8,3 +8,10 @@
     grid-template-rows: repeat(6, 1fr);
     grid-template-columns: repeat(7, 1fr);
 }
+
+.coins {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: white;
+}
