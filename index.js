@@ -42,3 +42,23 @@ function loadTable() {
 }
 
 loadTable();
+
+
+function whoIsWinnerCheck() {
+
+    for (let row = 0; row < nRow; row++) {
+        for (let col = 0; col < nCol - 3; col++) {
+            let currentCoin = document.getElementById(`${row}${col}`).style.backgroundColor;
+
+            if (currentCoin !== "" &&
+                currentCoin === document.getElementById(`${row}${col + 1}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${row}${col + 2}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${row}${col + 3}`).style.backgroundColor) {
+
+                return currentCoin;
+            }
+        }
+    }
+
+
+}
