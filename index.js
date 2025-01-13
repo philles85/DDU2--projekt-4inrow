@@ -36,12 +36,15 @@ function loadTable() {
                 }
 
                 columns[col] = columns[col] - 1;
+
+
             });
         }
     }
 }
 
 loadTable();
+whoIsWinnerCheck();
 
 
 function whoIsWinnerCheck() {
@@ -60,29 +63,43 @@ function whoIsWinnerCheck() {
         }
     }
 
-    for (let c = 0; c < nCol; c++) {
-        for (let r = 0; r < nRow - 3; r++) {
-            let currentCoin = document.getElementById(`${r}${c}`).style.backgroundColor;
+    for (let col = 0; col < nCol; col++) {
+        for (let row = 0; row < nRow - 3; row++) {
+            let currentCoin = document.getElementById(`${row}${col}`).style.backgroundColor;
 
             if (currentCoin !== "" &&
-                currentCoin === document.getElementById(`${r + 1}${c}`).style.backgroundColor &&
-                currentCoin === document.getElementById(`${r + 2}${c}`).style.backgroundColor &&
-                currentCoin === document.getElementById(`${r + 3}${c}`).style.backgroundColor) {
+                currentCoin === document.getElementById(`${row + 1}${col}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${row + 2}${col}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${row + 3}${col}`).style.backgroundColor) {
 
                 return currentCoin;
             }
         }
     }
 
-    for (let r = 0; r < nRow - 3; r++) {
-        for (let c = 0; c < nCol - 3; c++) {
-            let currentCoin = document.getElementById(`${r}${c}`).style.backgroundColor;
+    for (let row = 3; row < nRow; row++) {
+        for (let col = 0; col < nCol - 3; col++) {
+            let currentCoin = document.getElementById(`${row}${col}`).style.backgroundColor;
 
             if (currentCoin !== "" &&
-                currentCoin === document.getElementById(`${r - 1}${c + 1}`).style.backgroundColor &&
-                currentCoin === document.getElementById(`${r - 2}${c + 2}`).style.backgroundColor &&
-                currentCoin === document.getElementById(`${r - 3}${c + 3}`).style.backgroundColor) {
+                currentCoin === document.getElementById(`${row - 1}${col + 1}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${row - 2}${col + 2}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${row - 3}${col + 3}`).style.backgroundColor) {
 
+                return currentCoin;
+            }
+        }
+    }
+    console.log(nRow - 3);
+
+    for (let row = 0; row < nRow - 3; row++) {
+        for (let col = 0; col < nCol - 3; col++) {
+            let currentCoin = document.getElementById(`${row}${col}`).style.backgroundColor;
+
+            if (currentCoin !== "" &&
+                currentCoin === document.getElementById(`${row + 1}${col + 1}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${row + 2}${col + 2}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${row + 3}${col + 3}`).style.backgroundColor) {
                 return currentCoin;
             }
         }
