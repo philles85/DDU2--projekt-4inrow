@@ -17,3 +17,8 @@
     border-radius: 50%;
     background-color: white;
 }
+
+#start {
+    display: none;
+    margin: auto;
+}

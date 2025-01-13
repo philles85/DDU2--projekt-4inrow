@@ -41,6 +41,7 @@ function loadTable() {
                 let winnerPlayer = whoIsWinnerCheck();
                 if (winnerPlayer == true) {
                     document.getElementById("winner").innerHTML = `${winnerPlayer} Wins!`
+                    startGameAgain();
                 }
 
             });
@@ -111,5 +112,21 @@ function whoIsWinnerCheck() {
     }
 
     return
+
+}
+
+function startGameAgain() {
+    let startButton = document.getElementById("start");
+    startButton.style.display = "flex";
+
+    startButton.addEventListener("click", function () {
+        columns = [5, 5, 5, 5, 5, 5, 5];
+        whoIsWinnerCheck();
+        document.getElementById("winner").innerHTML = "";
+        currentPlayer = playerOne;
+        resetBoard();
+        startButton.style.display = "none";
+    })
+
 
 }
