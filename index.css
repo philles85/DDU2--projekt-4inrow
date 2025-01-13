@@ -22,3 +22,7 @@
     display: none;
     margin: auto;
 }
+
+#winner {
+    text-align: center;
+}

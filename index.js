@@ -39,7 +39,7 @@ function loadTable() {
 
 
                 let winnerPlayer = whoIsWinnerCheck();
-                if (winnerPlayer == true) {
+                if (winnerPlayer) {
                     document.getElementById("winner").innerHTML = `${winnerPlayer} Wins!`
                     startGameAgain();
                 }
@@ -50,8 +50,6 @@ function loadTable() {
 }
 
 loadTable();
-whoIsWinnerCheck();
-
 
 function whoIsWinnerCheck() {
 
@@ -127,6 +125,14 @@ function startGameAgain() {
         resetBoard();
         startButton.style.display = "none";
     })
-
-
 }
+
+function resetBoard() {
+    for (let r = 0; r < nRow; r++) {
+        for (let c = 0; c < nCol; c++) {
+            let coin = document.getElementById(`${r}${c}`);
+            coin.style.backgroundColor = "";
+        }
+    }
+}
+
