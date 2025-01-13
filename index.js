@@ -38,6 +38,11 @@ function loadTable() {
                 columns[col] = columns[col] - 1;
 
 
+                let winnerPlayer = whoIsWinnerCheck();
+                if (winnerPlayer == true) {
+                    document.getElementById("winner").innerHTML = `${winnerPlayer} Wins!`
+                }
+
             });
         }
     }
@@ -104,5 +109,7 @@ function whoIsWinnerCheck() {
             }
         }
     }
+
+    return
 
 }
