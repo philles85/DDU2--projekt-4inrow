@@ -42,6 +42,10 @@ function loadTable() {
                 let winnerPlayer = whoIsWinnerCheck();
                 if (winnerPlayer) {
                     document.getElementById("winner").innerHTML = `${winnerPlayer} Wins!`
+                    score[winnerPlayer] = score[winnerPlayer] + 1;
+
+                    document.getElementById("blue").innerHTML = `Poäng: ${score.blue}`;
+                    document.getElementById("red").innerHTML = `Poäng: ${score.red}`;
                     startGameAgain();
                 }
 
