@@ -5,8 +5,9 @@ let currentPlayer = playerOne;
 
 let nRow = 6;
 let nCol = 7;
-let columns = [5, 5, 5, 5, 5, 5, 5]
 
+let columns = [5, 5, 5, 5, 5, 5, 5]
+let score = { "blue": 0, "red": 0 }
 
 function loadTable() {
     for (let r = 0; r < nRow; r++) {

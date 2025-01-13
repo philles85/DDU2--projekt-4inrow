@@ -26,3 +26,10 @@
 #winner {
     text-align: center;
 }
+
+#points {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    height: 20px;
+}
