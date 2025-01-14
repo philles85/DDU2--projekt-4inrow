@@ -1,18 +1,19 @@
-let playerOne = prompt("Choose color player 1");
-let playerTwo = prompt("Choose color player 2");;
+const playerOne = prompt("Choose color player 1");
+const playerTwo = prompt("Choose color player 2");;
 
 document.getElementById("playerOne").innerHTML = playerOne;
 document.getElementById("playerTwo").innerHTML = playerTwo;
 
 let currentPlayer = playerOne;
 
-let nRow = 6;
-let nCol = 7;
+const nRow = 6;
+const nCol = 7;
 
 let columns = [5, 5, 5, 5, 5, 5, 5]
 let score = { playerOne: 0, playerTwo: 0 }
 
 function loadTable() {
+    let gameIsOver = false;
     for (let r = 0; r < nRow; r++) {
         for (let c = 0; c < nCol; c++) {
             let coins = document.createElement("div");
@@ -20,6 +21,10 @@ function loadTable() {
             coins.classList.add("coins");
             document.getElementById("table").appendChild(coins);
             coins.addEventListener("click", function () {
+                if (gameIsOver) {
+                    return;
+                }
+
                 let stringRowCol = coins.id;
                 let row = parseInt(stringRowCol[0]);
                 let col = parseInt(stringRowCol[1]);
@@ -45,8 +50,8 @@ function loadTable() {
                 let winnerPlayer = whoIsWinnerCheck();
                 let noWinner = noWinnerPlayer();
                 if (winnerPlayer) {
-                    console.log(winnerPlayer);
-                    document.getElementById("winner").innerHTML = `${winnerPlayer} Wins!`
+                    gameIsOver = true;
+                    document.getElementById("winner").innerHTML = `${winnerPlayer} wins the round!`
 
                     if (winnerPlayer === playerOne) {
                         score.playerOne = score.playerOne + 1;
@@ -58,7 +63,7 @@ function loadTable() {
                     document.getElementById("red").innerHTML = `Poäng: ${score.playerTwo}`;
                     startGameAgain();
                 } else if (noWinner) {
-                    document.getElementById("winner").innerHTML = "It's a Draw!";
+                    document.getElementById("winner").innerHTML = "Draw between players!";
                     startGameAgain();
                 }
 
@@ -160,6 +165,7 @@ function resetBoard() {
             coin.style.backgroundColor = "";
         }
     }
+    gameIsOver = false;
 }
 
 
