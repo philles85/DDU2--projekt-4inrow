@@ -11,9 +11,9 @@ const nCol = 7;
 
 let columns = [5, 5, 5, 5, 5, 5, 5]
 let score = { playerOne: 0, playerTwo: 0 }
+let gameIsOver = false;
 
 function loadTable() {
-    let gameIsOver = false;
     for (let r = 0; r < nRow; r++) {
         for (let c = 0; c < nCol; c++) {
             let coins = document.createElement("div");
