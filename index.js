@@ -43,6 +43,7 @@ function loadTable() {
 
 
                 let winnerPlayer = whoIsWinnerCheck();
+                let noWinner = noWinnerPlayer();
                 if (winnerPlayer) {
                     console.log(winnerPlayer);
                     document.getElementById("winner").innerHTML = `${winnerPlayer} Wins!`
@@ -55,6 +56,9 @@ function loadTable() {
 
                     document.getElementById("blue").innerHTML = `Poäng: ${score.playerOne}`;
                     document.getElementById("red").innerHTML = `Poäng: ${score.playerTwo}`;
+                    startGameAgain();
+                } else if (noWinner) {
+                    document.getElementById("winner").innerHTML = "It's a Draw!";
                     startGameAgain();
                 }
 
@@ -124,6 +128,16 @@ function whoIsWinnerCheck() {
     return
 
 }
+
+function noWinnerPlayer() {
+    for (let col = 0; col < nCol; col++) {
+        if (columns[col] > 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 function startGameAgain() {
     let startButton = document.getElementById("start");
