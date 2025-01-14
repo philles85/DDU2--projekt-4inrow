@@ -30,6 +30,6 @@
 #points {
     display: flex;
     justify-content: space-between;
-    margin: 0;
+    margin: 20px;
     height: 20px;
 }

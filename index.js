@@ -1,5 +1,8 @@
-let playerOne = "blue";
-let playerTwo = "red";
+let playerOne = prompt("Choose color player 1");
+let playerTwo = prompt("Choose color player 2");;
+
+document.getElementById("playerOne").innerHTML = playerOne;
+document.getElementById("playerTwo").innerHTML = playerTwo;
 
 let currentPlayer = playerOne;
 
@@ -7,7 +10,7 @@ let nRow = 6;
 let nCol = 7;
 
 let columns = [5, 5, 5, 5, 5, 5, 5]
-let score = { "blue": 0, "red": 0 }
+let score = { playerOne: 0, playerTwo: 0 }
 
 function loadTable() {
     for (let r = 0; r < nRow; r++) {
@@ -41,11 +44,17 @@ function loadTable() {
 
                 let winnerPlayer = whoIsWinnerCheck();
                 if (winnerPlayer) {
+                    console.log(winnerPlayer);
                     document.getElementById("winner").innerHTML = `${winnerPlayer} Wins!`
-                    score[winnerPlayer] = score[winnerPlayer] + 1;
 
-                    document.getElementById("blue").innerHTML = `Poäng: ${score.blue}`;
-                    document.getElementById("red").innerHTML = `Poäng: ${score.red}`;
+                    if (winnerPlayer === playerOne) {
+                        score.playerOne = score.playerOne + 1;
+                    } else if (winnerPlayer === playerTwo) {
+                        score.playerTwo = score.playerTwo + 1;
+                    }
+
+                    document.getElementById("blue").innerHTML = `Poäng: ${score.playerOne}`;
+                    document.getElementById("red").innerHTML = `Poäng: ${score.playerTwo}`;
                     startGameAgain();
                 }
 
