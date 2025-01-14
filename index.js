@@ -70,7 +70,6 @@ function whoIsWinnerCheck() {
     for (let row = 0; row < nRow; row++) {
         for (let col = 0; col < nCol - 3; col++) {
             let currentCoin = document.getElementById(`${row}${col}`).style.backgroundColor;
-
             if (currentCoin !== "" &&
                 currentCoin === document.getElementById(`${row}${col + 1}`).style.backgroundColor &&
                 currentCoin === document.getElementById(`${row}${col + 2}`).style.backgroundColor &&
@@ -95,20 +94,19 @@ function whoIsWinnerCheck() {
         }
     }
 
-    for (let row = 3; row < nRow; row++) {
-        for (let col = 0; col < nCol - 3; col++) {
+    for (let row = 0; row < nRow - 3; row++) {
+        for (let col = 3; col < nCol; col++) {
             let currentCoin = document.getElementById(`${row}${col}`).style.backgroundColor;
 
             if (currentCoin !== "" &&
-                currentCoin === document.getElementById(`${row - 1}${col + 1}`).style.backgroundColor &&
-                currentCoin === document.getElementById(`${row - 2}${col + 2}`).style.backgroundColor &&
-                currentCoin === document.getElementById(`${row - 3}${col + 3}`).style.backgroundColor) {
+                currentCoin === document.getElementById(`${row + 1}${col - 1}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${row + 2}${col - 2}`).style.backgroundColor &&
+                currentCoin === document.getElementById(`${row + 3}${col - 3}`).style.backgroundColor) {
 
                 return currentCoin;
             }
         }
     }
-    console.log(nRow - 3);
 
     for (let row = 0; row < nRow - 3; row++) {
         for (let col = 0; col < nCol - 3; col++) {
@@ -142,11 +140,12 @@ function startGameAgain() {
 }
 
 function resetBoard() {
-    for (let r = 0; r < nRow; r++) {
-        for (let c = 0; c < nCol; c++) {
-            let coin = document.getElementById(`${r}${c}`);
+    for (let row = 0; row < nRow; row++) {
+        for (let col = 0; col < nCol; col++) {
+            let coin = document.getElementById(`${row}${col}`);
             coin.style.backgroundColor = "";
         }
     }
 }
+
 
